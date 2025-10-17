@@ -1,0 +1,42 @@
+.public-sans {
+  font-family: "Public Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #282a36 !important;
+  color: #f8f8f2 !important;
+}
+
+.akun-text {
+  text-decoration: none !important;
+  color: #f8f8f2 !important;
+}
+
+.carousel-banner-img {
+  width: 100vw;
+  height: 75vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  position: relative;
+}
+
+.card-berita-trending-img {
+  width: 330px;
+}
+
+.banner-text-container {
+  height: 95vh;
+}
+
+.banner-text-container h1 {
+  font-size: 3.5rem;
+}
+
+.banner-text-container h3 {
+  font-size: 1.3rem;
+}
