@@ -153,20 +153,25 @@ document.addEventListener("DOMContentLoaded", function () {
   const kategoriTemplate = document.getElementById("kategori-template");
   const kategoriLink = document.querySelectorAll("kategori-link");
 
-  async function fetchNewsKategori() {
+  async function fetchNewsKategori(media) {
     try {
-      const res = await fetch(`https://api-berita-indo.vercel.app/cnn/terbaru`);
+      const res = await fetch(
+        `https://api-berita-indo.vercel.app/cnn/${media}`,
+      );
       if (!res.ok) {
         throw new Error(`HTTP error, ${res.status}`);
       }
-      const data = res.json();
+      const data = await res.json();
       const articles = data.slice(0, 5);
       listBeritaKategoriContainer.innerHTML = "";
       articles.forEach((item) => {
         const clone = kategoriTemplate.content.cloneNode(true);
-        // clone.querySelector(".card-berita-kategori-img").src =
-        // clone.querySelector(".card-berita-kategori-title").textContent =
-        // clone.querySelector(".card-berita-kategori-text").textContent =
+        clone.querySelector(".card-berita-kategori-img").src =
+          item.enclosure.url;
+        clone.querySelector(".card-berita-kategori-title").textContent =
+          item.title;
+        clone.querySelector(".card-berita-kategori-text").textContent =
+          item.contentSnippet;
         listBeritaKategoriContainer.appendChild(clone);
       });
     } catch (error) {
@@ -174,6 +179,14 @@ document.addEventListener("DOMContentLoaded", function () {
       listBeritaKategoriContainer.innerHTML = "<p>Berita gagal dimuat</p>";
     }
   }
+  kategoriLink.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const media = e.target.dataset.source;
+      fetchNewsKategori(media);
+    });
+  });
+  fetchNewsKategori("internasional");
 });
 
 // Chart Stock Market Dummy
