@@ -1,3 +1,9 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
 .public-sans {
   font-family: "Public Sans", sans-serif;
   font-optical-sizing: auto;
@@ -25,8 +31,35 @@ body {
   position: relative;
 }
 
+.carousel-item {
+  box-shadow: inset 0 -10em 10em rgba(0, 0, 0, 0.9);
+}
+
+.carousel-item img {
+  position: relative;
+  z-index: -1;
+}
+
+.carousel-item h3 {
+  font-weight: bold;
+}
+
+.card {
+  border: 1px solid #1f2428 !important;
+}
+
+.card,
+.page-link {
+  background-color: #1f2428 !important;
+  color: white !important;
+}
+
 .card-berita-trending-img {
   width: 330px;
+}
+
+canvas {
+  padding-bottom: 20px;
 }
 
 .banner-text-container {
@@ -39,4 +72,50 @@ body {
 
 .banner-text-container h3 {
   font-size: 1.3rem;
+}
+
+#kategori,
+#faq,
+#contact-about {
+  display: flex;
+  justify-content: center;
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("assets/img/p.png");
+
+  /* Set a specific height */
+  height: 400px;
+  filter: brightness(95%);
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+}
+
+.about-text {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 20px 30px;
+}
+
+.kategori-content,
+.faq-content,
+.contact-about-content {
+  max-width: 1000px;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+footer {
+  background-color: #1f2428;
 }
