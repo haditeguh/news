@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "list-berita-kategori-container",
   );
   const kategoriTemplate = document.getElementById("kategori-template");
-  const kategoriLink = document.querySelectorAll("kategori-link");
+  const kategoriLink = document.querySelectorAll(".kategori-link");
 
   async function fetchNewsKategori(media) {
     try {

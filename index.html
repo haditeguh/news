@@ -9,13 +9,17 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
     </style>
   </head>
   <body class="public-sans">
     <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav
+      id="navbar-id"
+      class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+    >
       <div class="container-fluid">
         <button
           class="navbar-toggler"
@@ -38,578 +42,572 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#beranda"
+              <a class="nav-link active" aria-current="page" href="#banner"
                 >Beranda</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#berita_terbaru">Berita Terbaru</a>
+              <a class="nav-link" href="#terbaru">Berita</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#berita_populer">Berita Populer</a>
+              <a class="nav-link" href="#kategori">Kategori</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#tentang">Tentang</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#kontak">Kontak</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#kategori"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Kategori
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#politik">Politik</a></li>
-                <li>
-                  <a class="dropdown-item" href="#finansial">Finansial</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#ekonomi">Ekonomi</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#teknologi">Teknologi</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#kesehatan">Kesehatan</a>
-                </li>
-              </ul>
+              <a class="nav-link" href="#faq">FAQ</a>
             </li>
           </ul>
         </div>
         <div class="me-0">
-          <a class="akun-text my-auto" href="https://google.com">Buat Akun</a>
+          <a
+            class="akun-text my-auto"
+            href="https://isitchristmas.com/"
+            target="_blank"
+            >Buat Akun</a
+          >
         </div>
       </div>
     </nav>
     <!--BANNER-->
-    <section id="banner">
-      <div id="bannerTrendingNews" class="carousel slide">
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#bannerTrendingNews"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#bannerTrendingNews"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#bannerTrendingNews"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
-        <div id="list-berita-banner-container" class="carousel-inner">
-          <!--Tempat inject konten API untuk Banner Berita-->
-        </div>
-        <template id="template-berita-banner">
-          <div class="carousel-item">
-            <img class="carousel-banner-img" alt="Banner News" />
-            <div class="carousel-caption">
-              <h3 class="carousel-banner-title"></h3>
+    <div data-bs-spy="scroll" data-bs-target="#navbar-id">
+      <section id="banner">
+        <div
+          id="bannerTrendingNews"
+          class="carousel slide"
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="1500"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#bannerTrendingNews"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#bannerTrendingNews"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#bannerTrendingNews"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div id="list-berita-banner-container" class="carousel-inner">
+            <!--Tempat inject konten API untuk Banner Berita-->
+          </div>
+          <template id="template-berita-banner">
+            <div class="carousel-item">
+              <img class="carousel-banner-img" alt="Banner News" />
+              <div class="carousel-caption">
+                <h3 class="carousel-banner-title"></h3>
+              </div>
             </div>
-          </div>
-        </template>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#bannerTrendingNews"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#bannerTrendingNews"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </section>
+          </template>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#bannerTrendingNews"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#bannerTrendingNews"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
 
-    <!--Mama Kontainer-->
-    <section id="parent-container" class="container-fluid">
-      <div class="row">
-        <!--Anak 1 = Chart Index Stock Market-->
-        <section id="stock-chart" class="col-md-2 d-none d-md-block">
-          <h2 class="fw-bold my-4">Market</h2>
-          <div class="card p-3 text-center">
-            <canvas id="s&p500" width="auto" height="400"></canvas>
-            <canvas id="ihsg" width="auto" height="400"></canvas>
-            <canvas id="bitcoin" width="auto" height="400"></canvas>
-            <canvas id="nasdaq" width="auto" height="400"></canvas>
-            <canvas id="gold" width="auto" height="400"></canvas>
-          </div>
-        </section>
-        <div class="col-sm-10">
-          <div class="row">
-            <!-- Anak 2 = Berita Terbaru-->
-            <section
-              id="id-berita-terbaru"
-              class="col-12 col-md-9 order-2 container-fluid"
-            >
-              <div>
-                <h2 class="fw-bold my-4">Berita Terbaru</h2>
-                <div id="list-berita-terbaru-container" class="card">
-                  <!--Inject konten dari API disini-->
-                  <div class="card mb-0">
-                    <div class="card-body">
-                      <img
-                        class="card-img card-berita-terbaru-img"
-                        src="assets/img/banner.jpg"
-                        alt="Gambar Berita"
-                      />
-                      <h5 class="card-title pt-3 card-berita-terbaru-title">
-                        Lorem Ipsum Dolor Sit Amet
-                      </h5>
-                      <p class="card-text card-berita-terbaru-text">
-                        Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet
-                        Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet
-                      </p>
-                      <a class="btn btn-primary" target="_blank"
-                        >Baca Selengkapnya</a
-                      >
-                    </div>
+      <!--Mama Kontainer-->
+      <section id="parent-container" class="container-fluid">
+        <div class="row" data-aos="zoom-out" data-aos-duration="1500">
+          <!--Anak 1 = Chart Index Stock Market-->
+          <section id="stock" class="col-md-2 d-none d-md-block">
+            <div class="mt-5">
+              <h2 class="fw-bold my-4">Market</h2>
+            </div>
+            <div class="card p-3 text-center">
+              <canvas id="s&p500" width="auto" height="400"></canvas>
+              <canvas id="ihsg" width="auto" height="400"></canvas>
+              <canvas id="bitcoin" width="auto" height="400"></canvas>
+              <canvas id="nasdaq" width="auto" height="400"></canvas>
+              <canvas id="gold" width="auto" height="400"></canvas>
+            </div>
+          </section>
+          <div class="col-sm-10">
+            <div class="row">
+              <!-- Anak 2 = Berita Terbaru-->
+              <section
+                id="terbaru"
+                class="col-12 col-md-9 order-2 container-fluid"
+              >
+                <div>
+                  <div class="mt-5">
+                    <h2 class="fw-bold my-4">Berita Terbaru</h2>
                   </div>
-                </div>
-                <template id="template-berita-terbaru">
-                  <div class="mb-0 px-0">
-                    <div class="card-body">
-                      <img
-                        class="card-img card-berita-terbaru-img"
-                        alt="Gambar Berita"
-                      />
-                      <h4 class="card-title card-berita-terbaru-title"></h4>
-                      <p class="card-text card-berita-terbaru-text"></p>
-                      <a class="btn btn-primary" target="_blank"
-                        >Baca Selengkapnya</a
-                      >
-                      <br />
-                      <br />
-                      <hr />
-                    </div>
-                  </div>
-                </template>
-              </div>
-            </section>
-            <!--Anak 3 = Berita Trending-->
-            <section
-              id="berita-trending"
-              class="col-12 col-md-3 order-3 container-fluid"
-            >
-              <div>
-                <h2 class="fw-bold my-4">Trending</h2>
-                <div id="list-berita-trending-container">
-                  <!--Inject konten dari API disini-->
-                  <div class="card mb-3">
-                    <div class="card-body">
-                      <img
-                        class="card-img card-berita-trending-img img-fluid d-block justify-content-center mx-auto"
-                        alt="Gambar Berita"
-                        src="assets/img/banner.jpg"
-                      />
-                      <h5 class="card-title pt-3 card-berita-trending-title">
-                        Lorem Ipsum Dolor Sit Amet
-                      </h5>
-                      <p class="card-text card-berita-trending-text">
-                        Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet
-                        Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <template id="template-berita-trending">
-                  <div class="card mb-3">
-                    <div class="card-body">
-                      <img
-                        class="card-img card-berita-trending-img img-fluid d-block justify-content-center mx-auto"
-                        alt="Gambar Berita"
-                      />
-                      <h5 class="card-title card-berita-trending-title"></h5>
-                      <p class="card-text card-berita-trending-text"></p>
-                    </div>
-                  </div>
-                </template>
-              </div>
-            </section>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <!--Kategori Berita-->
-              <section id="kategori m-0">
-                <div
-                  class="kategori-content d-flex justify-content-start flex-column"
-                >
-                  <h2 class="fw-bold my-4">Kategori</h2>
-                  <div class="card" data-bs-theme="dark">
-                    <nav aria-label="Kategori Breadcrumb" class="ps-2 pt-2">
-                      <ol class="breadcrumb">
-                        <li class="breadcrumb-item active">
-                          <a
-                            class="kategori-link"
-                            href="#"
-                            data-source="internasional"
-                            aria-current="page"
-                            >Internasional</a
-                          >
-                        </li>
-                        <li class="breadcrumb-item">
-                          <a
-                            href="#"
-                            class="kategori-link"
-                            data-source="ekonomi"
-                            >Ekonomi</a
-                          >
-                        </li>
-                        <li class="breadcrumb-item">
-                          <a
-                            href="#"
-                            class="kategori-link"
-                            data-source="olahraga"
-                            >Olahraga</a
-                          >
-                        </li>
-                        <li class="breadcrumb-item">
-                          <a
-                            href="#"
-                            class="kategori-link"
-                            data-source="teknologi"
-                            >Teknologi</a
-                          >
-                        </li>
-                        <li class="breadcrumb-item">
-                          <a
-                            href="#"
-                            class="kategori-link"
-                            data-source="gaya_hidup"
-                            >Gaya Hidup</a
-                          >
-                        </li>
-                      </ol>
-                    </nav>
-                    <div id="list-berita-kategori-container">
-                      <!--Inject Konten Api Disini-->
-                      <div class="mb-3">
-                        <div class="row card-body">
-                          <div class="col-12 col-md-6">
-                            <img
-                              class="card-img card-berita-kategori-img img-fluid d-block justify-content-center mx-auto"
-                              alt="Gambar Berita"
-                              src="assets/img/banner.jpg"
-                            />
-                          </div>
-                          <div class="col-12 col-md-6">
-                            <h5
-                              class="card-title pt-3 card-berita-kategori-title"
-                            >
-                              Lorem Ipsum Dolor Sit Amet
-                            </h5>
-                            <p class="card-text card-berita-kategori-text">
-                              Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit
-                              Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor
-                              Sit Amet
-                            </p>
-                          </div>
-                        </div>
+                  <div id="list-berita-terbaru-container" class="card">
+                    <!--Inject konten dari API disini-->
+                    <div class="card mb-0">
+                      <div class="card-body">
+                        <img
+                          class="card-img card-berita-terbaru-img"
+                          src="assets/img/banner.jpg"
+                          alt="Gambar Berita"
+                        />
+                        <h5 class="card-title pt-3 card-berita-terbaru-title">
+                          Lorem Ipsum Dolor Sit Amet
+                        </h5>
+                        <p class="card-text card-berita-terbaru-text">
+                          Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet
+                          Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet
+                        </p>
+                        <a class="btn btn-primary" target="_blank"
+                          >Baca Selengkapnya</a
+                        >
                       </div>
                     </div>
                   </div>
-                </div>
-                <template id="kategori-template">
-                  <div class="mb-3">
-                    <div class="row card-body">
-                      <div class="col-12 col-md-6">
+                  <template id="template-berita-terbaru">
+                    <div class="mb-0 px-0">
+                      <div class="card-body">
                         <img
-                          class="card-img card-berita-kategori-img img-fluid d-block justify-content-center mx-auto"
+                          class="card-img card-berita-terbaru-img"
+                          alt="Gambar Berita"
+                        />
+                        <h4
+                          class="card-title card-berita-terbaru-title pt-3"
+                        ></h4>
+                        <p class="card-text card-berita-terbaru-text"></p>
+                        <a class="btn btn-primary" target="_blank"
+                          >Baca Selengkapnya</a
+                        >
+                        <br />
+                        <br />
+                        <hr />
+                      </div>
+                    </div>
+                  </template>
+                </div>
+              </section>
+              <!--Anak 3 = Berita Trending-->
+              <section
+                id="trending"
+                class="col-12 col-md-3 order-3 container-fluid"
+              >
+                <div>
+                  <div class="mt-5">
+                    <h2 class="fw-bold my-4">Trending</h2>
+                  </div>
+                  <div id="list-berita-trending-container">
+                    <!--Inject konten dari API disini-->
+                    <div class="card mb-3">
+                      <div class="card-body">
+                        <img
+                          class="card-img card-berita-trending-img img-fluid d-block justify-content-center mx-auto"
                           alt="Gambar Berita"
                           src="assets/img/banner.jpg"
                         />
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <h5 class="card-title pt-3 card-berita-kategori-title">
+                        <h5 class="card-title pt-3 card-berita-trending-title">
                           Lorem Ipsum Dolor Sit Amet
                         </h5>
-                        <p class="card-text card-berita-kategori-text">
+                        <p class="card-text card-berita-trending-text">
                           Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet
                           Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet
                         </p>
                       </div>
                     </div>
                   </div>
-                </template>
+                  <template id="template-berita-trending">
+                    <div class="card mb-3">
+                      <div class="card-body">
+                        <img
+                          class="card-img card-berita-trending-img img-fluid d-block justify-content-center mx-auto"
+                          alt="Gambar Berita"
+                        />
+                        <h5
+                          class="card-title card-berita-trending-title pt-3"
+                        ></h5>
+                        <p class="card-text card-berita-trending-text"></p>
+                      </div>
+                    </div>
+                  </template>
+                </div>
               </section>
             </div>
+            <div class="row">
+              <div class="col-12">
+                <!--Kategori Berita-->
+                <section id="kategori">
+                  <div
+                    class="kategori-content d-flex justify-content-start flex-column"
+                    data-aos="zoom-in"
+                  >
+                    <div class="mt-5">
+                      <h2 class="fw-bold">Kategori</h2>
+                    </div>
+                    <div class="card" data-bs-theme="dark">
+                      <nav aria-label="Kategori Breadcrumb" class="pt-3">
+                        <ol class="breadcrumb d-flex justify-content-center">
+                          <li class="breadcrumb-item active">
+                            <a
+                              class="kategori-link"
+                              href="#"
+                              data-source="internasional"
+                              aria-current="page"
+                              >Internasional</a
+                            >
+                          </li>
+                          <li class="breadcrumb-item">
+                            <a
+                              href="#"
+                              class="kategori-link"
+                              data-source="ekonomi"
+                              >Ekonomi</a
+                            >
+                          </li>
+                          <li class="breadcrumb-item">
+                            <a
+                              href="#"
+                              class="kategori-link"
+                              data-source="olahraga"
+                              >Olahraga</a
+                            >
+                          </li>
+                          <li class="breadcrumb-item">
+                            <a
+                              href="#"
+                              class="kategori-link"
+                              data-source="teknologi"
+                              >Teknologi</a
+                            >
+                          </li>
+                          <li class="breadcrumb-item">
+                            <a
+                              href="#"
+                              class="kategori-link"
+                              data-source="gaya_hidup"
+                              >Gaya Hidup</a
+                            >
+                          </li>
+                        </ol>
+                      </nav>
+                      <div id="list-berita-kategori-container">
+                        <!--Inject Konten Api Disini-->
+                        <div class="mb-3">
+                          <div class="row card-body">
+                            <div class="col-12 col-md-6">
+                              <img
+                                class="card-img card-berita-kategori-img img-fluid d-block justify-content-center mx-auto"
+                                alt="Gambar Berita"
+                                src="assets/img/banner.jpg"
+                              />
+                            </div>
+                            <div class="col-12 col-md-6">
+                              <h5
+                                class="card-title pt-3 card-berita-kategori-title"
+                              >
+                                Lorem Ipsum Dolor Sit Amet
+                              </h5>
+                              <p class="card-text card-berita-kategori-text">
+                                Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit
+                                Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum
+                                Dolor Sit Amet
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <section
+                      id="tentang"
+                      class="container-fluid d-flex flex-column"
+                      data-aos="zoom-in"
+                    >
+                      <div class="mt-5">
+                        <h2 class="fw-bold text-start">Tentang</h2>
+                      </div>
+                      <div class="card">
+                        <div
+                          class="contact-about-content row mx-auto d-flex align-items-center"
+                        >
+                          <div
+                            class="parallax about container-fluid col-12 col-md-6"
+                          >
+                            <div class="about-text">
+                              <h3>
+                                <b>Portal Media</b>
+                              </h3>
+                              <p>
+                                Kami adalah platform media berita nasional yang
+                                berkomitmen menyajikan informasi aktual,
+                                faktual, dan terpercaya. Dengan cakupan berita
+                                dari berbagai bidang — politik, ekonomi,
+                                teknologi, hingga gaya hidup — kami hadir untuk
+                                memberikan wawasan mendalam dan independen bagi
+                                seluruh masyarakat Indonesia.
+                              </p>
+                            </div>
+                          </div>
+                          <div
+                            class="contact container-fluid col-12 col-md-6"
+                            style="max-width: 350px"
+                          >
+                            <form
+                              id="contact-form"
+                              action="mail.php"
+                              method="POST"
+                            >
+                              <!-- Name input -->
+                              <div class="form-outline mb-4 pt-3">
+                                <label class="form-label" for="name"
+                                  >Name</label
+                                >
+                                <input
+                                  type="text"
+                                  id="name"
+                                  name="name"
+                                  class="form-control"
+                                />
+                              </div>
+
+                              <!-- Email input -->
+                              <div class="form-outline mb-4">
+                                <label class="form-label" for="email"
+                                  >Email address</label
+                                >
+                                <input
+                                  type="email"
+                                  id="email"
+                                  name="email"
+                                  class="form-control"
+                                />
+                              </div>
+
+                              <!-- Subject input -->
+                              <div class="form-outline mb-4">
+                                <label class="form-label" for="subject"
+                                  >Subject</label
+                                >
+                                <input
+                                  type="text"
+                                  id="subject"
+                                  name="subject"
+                                  class="form-control"
+                                />
+                              </div>
+
+                              <!-- Message input -->
+                              <div class="form-outline mb-4">
+                                <label class="form-label" for="message"
+                                  >Message</label
+                                >
+                                <textarea
+                                  class="form-control"
+                                  id="message"
+                                  name="message"
+                                  rows="4"
+                                ></textarea>
+                              </div>
+
+                              <!-- Submit button -->
+                              <button
+                                id="submit-form"
+                                type="submit"
+                                data-mdb-ripple-init
+                                class="btn btn-primary btn-block mb-4"
+                              >
+                                Send
+                              </button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                    <!--FAQ-->
+                    <section id="faq" class="d-flex flex-column w-100">
+                      <div class="container-fluid" data-bs-theme="dark">
+                        <div class="mt-5">
+                          <h2 class="fw-bold my-4 text-start">FAQ</h2>
+                        </div>
+                        <div class="card py-3" data-aos="zoom-in">
+                          <div
+                            class="accordion faq-content container-fluid"
+                            id="accordionExample"
+                          >
+                            <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                <button
+                                  class="accordion-button"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#collapseOne"
+                                  aria-expanded="true"
+                                  aria-controls="collapseOne"
+                                >
+                                  Apa yang dimaksud dengan media berita
+                                  nasional?
+                                </button>
+                              </h2>
+                              <div
+                                id="collapseOne"
+                                class="accordion-collapse collapse show"
+                                data-bs-parent="#accordionExample"
+                              >
+                                <div class="accordion-body">
+                                  Media berita nasional adalah lembaga atau
+                                  platform yang menyajikan informasi dan berita
+                                  yang mencakup isu-isu penting di tingkat
+                                  nasional suatu negara.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#collapseTwo"
+                                  aria-expanded="false"
+                                  aria-controls="collapseTwo"
+                                >
+                                  Mengapa media berita nasional penting bagi
+                                  masyarakat?
+                                </button>
+                              </h2>
+                              <div
+                                id="collapseTwo"
+                                class="accordion-collapse collapse"
+                                data-bs-parent="#accordionExample"
+                              >
+                                <div class="accordion-body">
+                                  Karena berfungsi sebagai sumber informasi
+                                  utama yang membantu masyarakat memahami
+                                  perkembangan politik, ekonomi, sosial, dan
+                                  budaya di negaranya.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                <button
+                                  class="accordion-button collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#collapseThree"
+                                  aria-expanded="false"
+                                  aria-controls="collapseThree"
+                                >
+                                  Sebutkan contoh media berita nasional di
+                                  Indonesia.
+                                </button>
+                              </h2>
+                              <div
+                                id="collapseThree"
+                                class="accordion-collapse collapse"
+                                data-bs-parent="#accordionExample"
+                              >
+                                <div class="accordion-body">
+                                  Contohnya antara lain CNN Indonesia, Kompas,
+                                  Republika, CNBC Indonesia, dan Antara News.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <template id="kategori-template">
+                    <div class="mb-3">
+                      <div class="row card-body">
+                        <div class="col-12 col-md-6">
+                          <img
+                            class="card-img card-berita-kategori-img img-fluid d-block justify-content-center mx-auto"
+                            alt="Gambar Berita"
+                            src="assets/img/banner.jpg"
+                          />
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <h5
+                            class="card-title pt-3 card-berita-kategori-title pt-3"
+                          >
+                            Lorem Ipsum Dolor Sit Amet
+                          </h5>
+                          <p class="card-text card-berita-kategori-text">
+                            Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit
+                            Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor
+                            Sit Amet
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </template>
+                </section>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!--FAQ-->
-    <section id="faq">
-      <div class="container-fluid" data-bs-theme="dark">
-        <h2 class="fw-bold my-4 text-center">Kategori</h2>
-        <div
-          class="accordion faq-content container-fluid"
-          id="accordionExample"
-        >
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button
-                class="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
-              >
-                Accordion Item #1
-              </button>
-            </h2>
-            <div
-              id="collapseOne"
-              class="accordion-collapse collapse show"
-              data-bs-parent="#accordionExample"
-            >
-              <div class="accordion-body">
-                <strong>This is the first item’s accordion body.</strong> It is
-                shown by default, until the collapse plugin adds the appropriate
-                classes that we use to style each element. These classes control
-                the overall appearance, as well as the showing and hiding via
-                CSS transitions. You can modify any of this with custom CSS or
-                overriding our default variables. It’s also worth noting that
-                just about any HTML can go within the
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseTwo"
-                aria-expanded="false"
-                aria-controls="collapseTwo"
-              >
-                Accordion Item #2
-              </button>
-            </h2>
-            <div
-              id="collapseTwo"
-              class="accordion-collapse collapse"
-              data-bs-parent="#accordionExample"
-            >
-              <div class="accordion-body">
-                <strong>This is the second item’s accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It’s also worth
-                noting that just about any HTML can go within the
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseThree"
-                aria-expanded="false"
-                aria-controls="collapseThree"
-              >
-                Accordion Item #3
-              </button>
-            </h2>
-            <div
-              id="collapseThree"
-              class="accordion-collapse collapse"
-              data-bs-parent="#accordionExample"
-            >
-              <div class="accordion-body">
-                <strong>This is the third item’s accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It’s also worth
-                noting that just about any HTML can go within the
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact-about" class="container-fluid">
-      <div class="container-fluid">
-        <h2 class="fw-bold my-4 text-center">Kategori</h2>
-        <div
-          class="contact-about-content row mx-auto d-flex align-items-center"
-        >
-          <div class="parallax about container-fluid col-12 col-md-6">
-            <div class="about-text">
-              <h3>
-                <strong>This is the third item’s accordion body.</strong>
-              </h3>
-              <p>
-                overriding our default variables. It’s also worth noting that
-                just the overall appearance, as well as the showing and hiding
-                via CSS transitions. You can modify any of this with custom CSS
-                or overriding our default variables. It’s also worth noting that
-                just
-              </p>
-            </div>
-          </div>
-          <div
-            class="contact container-fluid col-12 col-md-6"
-            style="max-width: 350px"
-          >
-            <form id="contact-form" action="mail.php" method="POST">
-              <h2>Contact us</h2>
-
-              <!-- Name input -->
-              <div data-mdb-input-init class="form-outline mb-4">
-                <label class="form-label" for="name">Name</label>
-                <input type="text" id="name" name="name" class="form-control" />
-              </div>
-
-              <!-- Email input -->
-              <div data-mdb-input-init class="form-outline mb-4">
-                <label class="form-label" for="email">Email address</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="form-control"
-                />
-              </div>
-
-              <!-- Subject input -->
-              <div data-mdb-input-init class="form-outline mb-4">
-                <label class="form-label" for="subject">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  class="form-control"
-                />
-              </div>
-
-              <!-- Message input -->
-              <div data-mdb-input-init class="form-outline mb-4">
-                <label class="form-label" for="message">Message</label>
-                <textarea
-                  class="form-control"
-                  id="message"
-                  name="message"
-                  rows="4"
-                ></textarea>
-              </div>
-
-              <!-- Submit button -->
-              <button
-                data-mdb-button-init
-                id="submit-form"
-                type="submit"
-                data-mdb-ripple-init
-                class="btn btn-primary btn-block mb-4"
-              >
-                Send
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
+      </section>
+    </div>
     <!--Footer-->
     <footer class="container-fluid mt-5 pt-3">
-      <div class="row mx-3">
-        <div class="col-12 col-md-2 pt-4 text-center">
-          <h5>Section</h5>
+      <div class="row mx-3" data-aos="zoom-in">
+        <div class="col-12 col-md-2 pt-4 text-start">
+          <h5>Navigasi</h5>
           <ul class="nav flex-column">
             <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">Home</a>
+              <a href="#banner" class="nav-link p-0 text-white">Beranda</a>
             </li>
             <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">Features</a>
+              <a href="#terbaru" class="nav-link p-0 text-white">Berita</a>
             </li>
             <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">Pricing</a>
+              <a href="#tentang" class="nav-link p-0 text-white">Tentang</a>
             </li>
             <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">FAQs</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">About</a>
+              <a href="#faq" class="nav-link p-0 text-white">FAQ</a>
             </li>
           </ul>
         </div>
-        <div class="col-12 col-md-2 pt-4 text-center">
-          <h5>Section</h5>
+        <div class="col-12 col-md-2 pt-4 text-start">
+          <h5>Kontak</h5>
           <ul class="nav flex-column">
             <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">Home</a>
+              <a href="#" class="nav-link p-0 text-white">Instagram</a>
             </li>
             <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">Features</a>
+              <a href="#" class="nav-link p-0 text-white">Youtube</a>
             </li>
             <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">Pricing</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">FAQs</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">About</a>
+              <a href="#" class="nav-link p-0 text-white">Email</a>
             </li>
           </ul>
         </div>
-        <div class="col-12 col-md-2 pt-4 text-center">
-          <h5>Section</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">Home</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">Features</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">Pricing</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">FAQs</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">About</a>
-            </li>
-          </ul>
+        <div class="col-12 col-md-2 pt-4 text-start">
+          <h5>Portal Media</h5>
+          <p>
+            Platform media berita nasional yang menyajikan informasi aktual,
+            faktual, dan terpercaya.
+          </p>
         </div>
         <div class="col-md-5 offset-md-1">
           <form class="pt-4">
@@ -652,7 +650,13 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
+    <script>
+      window.onload = function () {
+        AOS.init();
+      };
+    </script>
   </body>
 </html>
